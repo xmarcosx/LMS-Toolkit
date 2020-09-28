@@ -1,0 +1,1 @@
+CREATE SCHEMA fizz AUTHORIZATION postgres;

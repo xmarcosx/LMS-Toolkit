@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<AggregateExtensions logicalSchema="Fizz" schema="fizz">
+  <Aggregate root="Assignment">
+    <Entity table="Assignment" schema="fizz"/>
+    <Entity table="AssignmentSubmissionType" schema="fizz"/>
+  </Aggregate>
+  <Aggregate root="AssignmentSubmission">
+    <Entity table="AssignmentSubmission" schema="fizz"/>
+  </Aggregate>
+  <Aggregate root="LMSGrade">
+    <Entity table="LMSGrade" schema="fizz"/>
+  </Aggregate>
+  <Aggregate root="LMSSection">
+    <Entity table="LMSSection" schema="fizz"/>
+  </Aggregate>
+  <Aggregate root="User">
+    <Entity table="User" schema="fizz"/>
+  </Aggregate>
+  <Aggregate root="UserAttendanceEvent">
+    <Entity table="UserAttendanceEvent" schema="fizz"/>
+  </Aggregate>
+  <Aggregate root="UserLMSActivity">
+    <Entity table="UserLMSActivity" schema="fizz"/>
+  </Aggregate>
+  <Aggregate root="UserLMSSectionAssociation">
+    <Entity table="UserLMSSectionAssociation" schema="fizz"/>
+  </Aggregate>
+</AggregateExtensions>

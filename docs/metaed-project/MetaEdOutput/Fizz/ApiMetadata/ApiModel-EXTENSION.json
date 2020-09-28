@@ -1,0 +1,2975 @@
+{
+  "odsApiVersion": "5.0.0",
+  "schemaDefinition": {
+    "logicalName": "Fizz",
+    "physicalName": "fizz",
+    "version": "1.0.0"
+  },
+  "aggregateDefinitions": [
+    {
+      "aggregateRootEntityName": {
+        "schema": "fizz",
+        "name": "Assignment"
+      },
+      "aggregateEntityNames": [
+        {
+          "schema": "fizz",
+          "name": "Assignment"
+        },
+        {
+          "schema": "fizz",
+          "name": "AssignmentSubmissionType"
+        }
+      ]
+    },
+    {
+      "aggregateRootEntityName": {
+        "schema": "fizz",
+        "name": "AssignmentSubmission"
+      },
+      "aggregateEntityNames": [
+        {
+          "schema": "fizz",
+          "name": "AssignmentSubmission"
+        }
+      ]
+    },
+    {
+      "aggregateRootEntityName": {
+        "schema": "fizz",
+        "name": "LMSGrade"
+      },
+      "aggregateEntityNames": [
+        {
+          "schema": "fizz",
+          "name": "LMSGrade"
+        }
+      ]
+    },
+    {
+      "aggregateRootEntityName": {
+        "schema": "fizz",
+        "name": "LMSSection"
+      },
+      "aggregateEntityNames": [
+        {
+          "schema": "fizz",
+          "name": "LMSSection"
+        }
+      ]
+    },
+    {
+      "aggregateRootEntityName": {
+        "schema": "fizz",
+        "name": "User"
+      },
+      "aggregateEntityNames": [
+        {
+          "schema": "fizz",
+          "name": "User"
+        }
+      ]
+    },
+    {
+      "aggregateRootEntityName": {
+        "schema": "fizz",
+        "name": "UserAttendanceEvent"
+      },
+      "aggregateEntityNames": [
+        {
+          "schema": "fizz",
+          "name": "UserAttendanceEvent"
+        }
+      ]
+    },
+    {
+      "aggregateRootEntityName": {
+        "schema": "fizz",
+        "name": "UserLMSActivity"
+      },
+      "aggregateEntityNames": [
+        {
+          "schema": "fizz",
+          "name": "UserLMSActivity"
+        }
+      ]
+    },
+    {
+      "aggregateRootEntityName": {
+        "schema": "fizz",
+        "name": "UserLMSSectionAssociation"
+      },
+      "aggregateEntityNames": [
+        {
+          "schema": "fizz",
+          "name": "UserLMSSectionAssociation"
+        }
+      ]
+    }
+  ],
+  "aggregateExtensionDefinitions": [],
+  "entityDefinitions": [
+    {
+      "schema": "fizz",
+      "name": "Assignment",
+      "locallyDefinedProperties": [
+        {
+          "propertyName": "AssignmentCategory",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 60,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The category or type of assignment.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "AssignmentCategory",
+            "postgreSql": "AssignmentCategory"
+          }
+        },
+        {
+          "propertyName": "AssignmentDescription",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 1024,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The assignment description.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "AssignmentDescription",
+            "postgreSql": "AssignmentDescription"
+          }
+        },
+        {
+          "propertyName": "AssignmentIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the assignment.",
+          "isIdentifying": true,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "AssignmentIdentifier",
+            "postgreSql": "AssignmentIdentifier"
+          }
+        },
+        {
+          "propertyName": "CreateDate",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "CreateDate",
+            "postgreSql": "CreateDate"
+          }
+        },
+        {
+          "propertyName": "DeletedAt",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The date/time the record EntityStatus changed to deleted.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "DeletedAt",
+            "postgreSql": "DeletedAt"
+          }
+        },
+        {
+          "propertyName": "DueDateTime",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The due date/time for the assignment.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "DueDateTime",
+            "postgreSql": "DueDateTime"
+          }
+        },
+        {
+          "propertyName": "EndDateTime",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The end date/time for the assignment. Students will no longer have access to the assignment after this date.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "EndDateTime",
+            "postgreSql": "EndDateTime"
+          }
+        },
+        {
+          "propertyName": "EntityStatus",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 60,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The status of the record.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "EntityStatus",
+            "postgreSql": "EntityStatus"
+          }
+        },
+        {
+          "propertyName": "Id",
+          "propertyType": {
+            "dbType": "Guid",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "Id",
+            "postgreSql": "Id"
+          }
+        },
+        {
+          "propertyName": "LastModifiedDate",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LastModifiedDate",
+            "postgreSql": "LastModifiedDate"
+          }
+        },
+        {
+          "propertyName": "MaxPoints",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The maximum number of points a student may receive for a submission of the assignment.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "MaxPoints",
+            "postgreSql": "MaxPoints"
+          }
+        },
+        {
+          "propertyName": "SourceSystem",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The system code or name providing the assignment data.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SourceSystem",
+            "postgreSql": "SourceSystem"
+          }
+        },
+        {
+          "propertyName": "SourceSystemIdentifier",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique number or alphanumeric code assigned to a user by the source system.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SourceSystemIdentifier",
+            "postgreSql": "SourceSystemIdentifier"
+          }
+        },
+        {
+          "propertyName": "StartDateTime",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The start date/time for the assignment. Students will have access to the assignment after this date.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "StartDateTime",
+            "postgreSql": "StartDateTime"
+          }
+        },
+        {
+          "propertyName": "Title",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The assignment title or name.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "Title",
+            "postgreSql": "Title"
+          }
+        }
+      ],
+      "identifiers": [
+        {
+          "identifierName": "Assignment_PK",
+          "identifyingPropertyNames": [
+            "AssignmentIdentifier"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false,
+          "constraintNames": {
+            "sqlServer": "Assignment_PK",
+            "postgreSql": "Assignment_PK"
+          }
+        },
+        {
+          "identifierName": "UX_Assignment_Id",
+          "identifyingPropertyNames": [
+            "Id"
+          ],
+          "isPrimary": false,
+          "isUpdatable": false,
+          "constraintNames": {
+            "sqlServer": "UX_Assignment_Id",
+            "postgreSql": "UX_153cda_Id"
+          }
+        }
+      ],
+      "isAbstract": false,
+      "description": "Course work assigned to students enrolled in a section.",
+      "tableNames": {
+        "sqlServer": "Assignment",
+        "postgreSql": "Assignment"
+      }
+    },
+    {
+      "schema": "fizz",
+      "name": "AssignmentSubmission",
+      "locallyDefinedProperties": [
+        {
+          "propertyName": "CreateDate",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "CreateDate",
+            "postgreSql": "CreateDate"
+          }
+        },
+        {
+          "propertyName": "DeletedAt",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The date/time the record EntityStatus changed to deleted.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "DeletedAt",
+            "postgreSql": "DeletedAt"
+          }
+        },
+        {
+          "propertyName": "EarnedPoints",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The points earned for the submission.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "EarnedPoints",
+            "postgreSql": "EarnedPoints"
+          }
+        },
+        {
+          "propertyName": "EntityStatus",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 60,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The status of the record.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "EntityStatus",
+            "postgreSql": "EntityStatus"
+          }
+        },
+        {
+          "propertyName": "Grade",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 20,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The grade received for the submission.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "Grade",
+            "postgreSql": "Grade"
+          }
+        },
+        {
+          "propertyName": "Id",
+          "propertyType": {
+            "dbType": "Guid",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "Id",
+            "postgreSql": "Id"
+          }
+        },
+        {
+          "propertyName": "LastModifiedDate",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LastModifiedDate",
+            "postgreSql": "LastModifiedDate"
+          }
+        },
+        {
+          "propertyName": "LMSGradeIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the submission.",
+          "isIdentifying": true,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LMSGradeIdentifier",
+            "postgreSql": "LMSGradeIdentifier"
+          }
+        },
+        {
+          "propertyName": "SourceSystem",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The system code or name providing the user data.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SourceSystem",
+            "postgreSql": "SourceSystem"
+          }
+        },
+        {
+          "propertyName": "SourceSystemIdentifier",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique number or alphanumeric code assigned to a user by the source system.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SourceSystemIdentifier",
+            "postgreSql": "SourceSystemIdentifier"
+          }
+        },
+        {
+          "propertyName": "Status",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 60,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The status of the submission in relation to the late policy.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "Status",
+            "postgreSql": "Status"
+          }
+        },
+        {
+          "propertyName": "SubmissionDateTime",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The date/time for the assignment submission.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SubmissionDateTime",
+            "postgreSql": "SubmissionDateTime"
+          }
+        }
+      ],
+      "identifiers": [
+        {
+          "identifierName": "AssignmentSubmission_PK",
+          "identifyingPropertyNames": [
+            "LMSGradeIdentifier"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false,
+          "constraintNames": {
+            "sqlServer": "AssignmentSubmission_PK",
+            "postgreSql": "AssignmentSubmission_PK"
+          }
+        },
+        {
+          "identifierName": "UX_AssignmentSubmission_Id",
+          "identifyingPropertyNames": [
+            "Id"
+          ],
+          "isPrimary": false,
+          "isUpdatable": false,
+          "constraintNames": {
+            "sqlServer": "UX_AssignmentSubmission_Id",
+            "postgreSql": "UX_f12526_Id"
+          }
+        }
+      ],
+      "isAbstract": false,
+      "description": "A student's submission for an assignment.",
+      "tableNames": {
+        "sqlServer": "AssignmentSubmission",
+        "postgreSql": "AssignmentSubmission"
+      }
+    },
+    {
+      "schema": "fizz",
+      "name": "AssignmentSubmissionType",
+      "locallyDefinedProperties": [
+        {
+          "propertyName": "CreateDate",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "CreateDate",
+            "postgreSql": "CreateDate"
+          }
+        },
+        {
+          "propertyName": "SubmissionType",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 60,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The type or types of submissions available for the assignment.",
+          "isIdentifying": true,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SubmissionType",
+            "postgreSql": "SubmissionType"
+          }
+        }
+      ],
+      "identifiers": [
+        {
+          "identifierName": "AssignmentSubmissionType_PK",
+          "identifyingPropertyNames": [
+            "AssignmentIdentifier",
+            "SubmissionType"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false,
+          "constraintNames": {
+            "sqlServer": "AssignmentSubmissionType_PK",
+            "postgreSql": "AssignmentSubmissionType_PK"
+          }
+        }
+      ],
+      "isAbstract": false,
+      "description": "The type or types of submissions available for the assignment.",
+      "tableNames": {
+        "sqlServer": "AssignmentSubmissionType",
+        "postgreSql": "AssignmentSubmissionType"
+      }
+    },
+    {
+      "schema": "fizz",
+      "name": "LMSGrade",
+      "locallyDefinedProperties": [
+        {
+          "propertyName": "CreateDate",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "CreateDate",
+            "postgreSql": "CreateDate"
+          }
+        },
+        {
+          "propertyName": "DeletedAt",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The date/time the record EntityStatus changed to deleted.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "DeletedAt",
+            "postgreSql": "DeletedAt"
+          }
+        },
+        {
+          "propertyName": "EntityStatus",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 60,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The status of the record.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "EntityStatus",
+            "postgreSql": "EntityStatus"
+          }
+        },
+        {
+          "propertyName": "Grade",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 20,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The user's letter or numeric grade for the section enrollment.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "Grade",
+            "postgreSql": "Grade"
+          }
+        },
+        {
+          "propertyName": "GradeType",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 60,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The type of grade reported. E.g., Current, Final.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "GradeType",
+            "postgreSql": "GradeType"
+          }
+        },
+        {
+          "propertyName": "Id",
+          "propertyType": {
+            "dbType": "Guid",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "Id",
+            "postgreSql": "Id"
+          }
+        },
+        {
+          "propertyName": "LastModifiedDate",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LastModifiedDate",
+            "postgreSql": "LastModifiedDate"
+          }
+        },
+        {
+          "propertyName": "LMSGradeIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the grade.",
+          "isIdentifying": true,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LMSGradeIdentifier",
+            "postgreSql": "LMSGradeIdentifier"
+          }
+        },
+        {
+          "propertyName": "SourceSystem",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The system code or name providing the grade data.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SourceSystem",
+            "postgreSql": "SourceSystem"
+          }
+        },
+        {
+          "propertyName": "SourceSystemIdentifier",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique number or alphanumeric code assigned to a user by the source system.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SourceSystemIdentifier",
+            "postgreSql": "SourceSystemIdentifier"
+          }
+        }
+      ],
+      "identifiers": [
+        {
+          "identifierName": "LMSGrade_PK",
+          "identifyingPropertyNames": [
+            "LMSGradeIdentifier"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false,
+          "constraintNames": {
+            "sqlServer": "LMSGrade_PK",
+            "postgreSql": "LMSGrade_PK"
+          }
+        },
+        {
+          "identifierName": "UX_LMSGrade_Id",
+          "identifyingPropertyNames": [
+            "Id"
+          ],
+          "isPrimary": false,
+          "isUpdatable": false,
+          "constraintNames": {
+            "sqlServer": "UX_LMSGrade_Id",
+            "postgreSql": "UX_0b99df_Id"
+          }
+        }
+      ],
+      "isAbstract": false,
+      "description": "The grade received for a section enrollment.",
+      "tableNames": {
+        "sqlServer": "LMSGrade",
+        "postgreSql": "LMSGrade"
+      }
+    },
+    {
+      "schema": "fizz",
+      "name": "LMSSection",
+      "locallyDefinedProperties": [
+        {
+          "propertyName": "CreateDate",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "CreateDate",
+            "postgreSql": "CreateDate"
+          }
+        },
+        {
+          "propertyName": "DeletedAt",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The date/time the record EntityStatus changed to deleted.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "DeletedAt",
+            "postgreSql": "DeletedAt"
+          }
+        },
+        {
+          "propertyName": "EntityStatus",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 60,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The status of the record.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "EntityStatus",
+            "postgreSql": "EntityStatus"
+          }
+        },
+        {
+          "propertyName": "Id",
+          "propertyType": {
+            "dbType": "Guid",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "Id",
+            "postgreSql": "Id"
+          }
+        },
+        {
+          "propertyName": "LastModifiedDate",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LastModifiedDate",
+            "postgreSql": "LastModifiedDate"
+          }
+        },
+        {
+          "propertyName": "LMSSectionIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the section.",
+          "isIdentifying": true,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LMSSectionIdentifier",
+            "postgreSql": "LMSSectionIdentifier"
+          }
+        },
+        {
+          "propertyName": "LMSSectionStatus",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 60,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The section status from the source system. E.g., Published, Completed.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LMSSectionStatus",
+            "postgreSql": "LMSSectionStatus"
+          }
+        },
+        {
+          "propertyName": "SectionDescription",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 1024,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The section description.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SectionDescription",
+            "postgreSql": "SectionDescription"
+          }
+        },
+        {
+          "propertyName": "SISSectionIdentifier",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The section identifier defined in the Student Information System (SIS).",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SISSectionIdentifier",
+            "postgreSql": "SISSectionIdentifier"
+          }
+        },
+        {
+          "propertyName": "SourceSystem",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The system code or name providing the section data.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SourceSystem",
+            "postgreSql": "SourceSystem"
+          }
+        },
+        {
+          "propertyName": "SourceSystemIdentifier",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique number or alphanumeric code assigned to a user by the source system.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SourceSystemIdentifier",
+            "postgreSql": "SourceSystemIdentifier"
+          }
+        },
+        {
+          "propertyName": "Term",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 60,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The enrollment term for the section.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "Term",
+            "postgreSql": "Term"
+          }
+        },
+        {
+          "propertyName": "Title",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The section title or name.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "Title",
+            "postgreSql": "Title"
+          }
+        }
+      ],
+      "identifiers": [
+        {
+          "identifierName": "LMSSection_PK",
+          "identifyingPropertyNames": [
+            "LMSSectionIdentifier"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false,
+          "constraintNames": {
+            "sqlServer": "LMSSection_PK",
+            "postgreSql": "LMSSection_PK"
+          }
+        },
+        {
+          "identifierName": "UX_LMSSection_Id",
+          "identifyingPropertyNames": [
+            "Id"
+          ],
+          "isPrimary": false,
+          "isUpdatable": false,
+          "constraintNames": {
+            "sqlServer": "UX_LMSSection_Id",
+            "postgreSql": "UX_2df970_Id"
+          }
+        }
+      ],
+      "isAbstract": false,
+      "description": "A course section defined in the source system.",
+      "tableNames": {
+        "sqlServer": "LMSSection",
+        "postgreSql": "LMSSection"
+      }
+    },
+    {
+      "schema": "fizz",
+      "name": "User",
+      "locallyDefinedProperties": [
+        {
+          "propertyName": "CreateDate",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "CreateDate",
+            "postgreSql": "CreateDate"
+          }
+        },
+        {
+          "propertyName": "DeletedAt",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The date/time the record EntityStatus changed to deleted.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "DeletedAt",
+            "postgreSql": "DeletedAt"
+          }
+        },
+        {
+          "propertyName": "EmailAddress",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The primary e-mail address for the user.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "EmailAddress",
+            "postgreSql": "EmailAddress"
+          }
+        },
+        {
+          "propertyName": "EntityStatus",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 60,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The status of the record.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "EntityStatus",
+            "postgreSql": "EntityStatus"
+          }
+        },
+        {
+          "propertyName": "Id",
+          "propertyType": {
+            "dbType": "Guid",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "Id",
+            "postgreSql": "Id"
+          }
+        },
+        {
+          "propertyName": "LastModifiedDate",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LastModifiedDate",
+            "postgreSql": "LastModifiedDate"
+          }
+        },
+        {
+          "propertyName": "LocalUserIdentifier",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The user identifier assigned by a school or district.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LocalUserIdentifier",
+            "postgreSql": "LocalUserIdentifier"
+          }
+        },
+        {
+          "propertyName": "Name",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The full name of the user.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "Name",
+            "postgreSql": "Name"
+          }
+        },
+        {
+          "propertyName": "SISUserIdentifier",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The user identifier defined in the Student Information System (SIS).",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SISUserIdentifier",
+            "postgreSql": "SISUserIdentifier"
+          }
+        },
+        {
+          "propertyName": "SourceSystem",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The system code or name providing the user data.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SourceSystem",
+            "postgreSql": "SourceSystem"
+          }
+        },
+        {
+          "propertyName": "SourceSystemIdentifier",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique number or alphanumeric code assigned to a user by the source system.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SourceSystemIdentifier",
+            "postgreSql": "SourceSystemIdentifier"
+          }
+        },
+        {
+          "propertyName": "UserIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the user.",
+          "isIdentifying": true,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserIdentifier",
+            "postgreSql": "UserIdentifier"
+          }
+        },
+        {
+          "propertyName": "UserRole",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 60,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The role assigned to the user. E.g., Student, Teacher, Administrator.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserRole",
+            "postgreSql": "UserRole"
+          }
+        }
+      ],
+      "identifiers": [
+        {
+          "identifierName": "User_PK",
+          "identifyingPropertyNames": [
+            "UserIdentifier"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false,
+          "constraintNames": {
+            "sqlServer": "User_PK",
+            "postgreSql": "User_PK"
+          }
+        },
+        {
+          "identifierName": "UX_User_Id",
+          "identifyingPropertyNames": [
+            "Id"
+          ],
+          "isPrimary": false,
+          "isUpdatable": false,
+          "constraintNames": {
+            "sqlServer": "UX_User_Id",
+            "postgreSql": "UX_b512d9_Id"
+          }
+        }
+      ],
+      "isAbstract": false,
+      "description": "A system user.",
+      "tableNames": {
+        "sqlServer": "User",
+        "postgreSql": "User"
+      }
+    },
+    {
+      "schema": "fizz",
+      "name": "UserAttendanceEvent",
+      "locallyDefinedProperties": [
+        {
+          "propertyName": "CreateDate",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "CreateDate",
+            "postgreSql": "CreateDate"
+          }
+        },
+        {
+          "propertyName": "DeletedAt",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The date/time the record EntityStatus changed to deleted.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "DeletedAt",
+            "postgreSql": "DeletedAt"
+          }
+        },
+        {
+          "propertyName": "EntityStatus",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 60,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The status of the record.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "EntityStatus",
+            "postgreSql": "EntityStatus"
+          }
+        },
+        {
+          "propertyName": "EventDate",
+          "propertyType": {
+            "dbType": "Date",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The date of the attendance event.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "EventDate",
+            "postgreSql": "EventDate"
+          }
+        },
+        {
+          "propertyName": "Id",
+          "propertyType": {
+            "dbType": "Guid",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "Id",
+            "postgreSql": "Id"
+          }
+        },
+        {
+          "propertyName": "LastModifiedDate",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LastModifiedDate",
+            "postgreSql": "LastModifiedDate"
+          }
+        },
+        {
+          "propertyName": "SourceSystem",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The system code or name providing the user data.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SourceSystem",
+            "postgreSql": "SourceSystem"
+          }
+        },
+        {
+          "propertyName": "SourceSystemIdentifier",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique number or alphanumeric code assigned to a user by the source system.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SourceSystemIdentifier",
+            "postgreSql": "SourceSystemIdentifier"
+          }
+        },
+        {
+          "propertyName": "Status",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 60,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A code describing the attendance event. E.g., In Attendance, Excused Absence, Unexcused Absence.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "Status",
+            "postgreSql": "Status"
+          }
+        },
+        {
+          "propertyName": "UserAttendanceEventIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the user attendance event.",
+          "isIdentifying": true,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserAttendanceEventIdentifier",
+            "postgreSql": "UserAttendanceEventIdentifier"
+          }
+        }
+      ],
+      "identifiers": [
+        {
+          "identifierName": "UserAttendanceEvent_PK",
+          "identifyingPropertyNames": [
+            "UserAttendanceEventIdentifier"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false,
+          "constraintNames": {
+            "sqlServer": "UserAttendanceEvent_PK",
+            "postgreSql": "UserAttendanceEvent_PK"
+          }
+        },
+        {
+          "identifierName": "UX_UserAttendanceEvent_Id",
+          "identifyingPropertyNames": [
+            "Id"
+          ],
+          "isPrimary": false,
+          "isUpdatable": false,
+          "constraintNames": {
+            "sqlServer": "UX_UserAttendanceEvent_Id",
+            "postgreSql": "UX_517447_Id"
+          }
+        }
+      ],
+      "isAbstract": false,
+      "description": "Attendance statuses assigned to users for a specific date.",
+      "tableNames": {
+        "sqlServer": "UserAttendanceEvent",
+        "postgreSql": "UserAttendanceEvent"
+      }
+    },
+    {
+      "schema": "fizz",
+      "name": "UserLMSActivity",
+      "locallyDefinedProperties": [
+        {
+          "propertyName": "ActivityDateTime",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The date/time the activity occurred.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "ActivityDateTime",
+            "postgreSql": "ActivityDateTime"
+          }
+        },
+        {
+          "propertyName": "ActivityStatus",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 60,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The activity status.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "ActivityStatus",
+            "postgreSql": "ActivityStatus"
+          }
+        },
+        {
+          "propertyName": "ActivityTimeInMinutes",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The total activity time in minutes.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "ActivityTimeInMinutes",
+            "postgreSql": "ActivityTimeInMinutes"
+          }
+        },
+        {
+          "propertyName": "ActivityType",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 60,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The type of activity. E.g., Discussion Post, Account Access/Log In.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "ActivityType",
+            "postgreSql": "ActivityType"
+          }
+        },
+        {
+          "propertyName": "Content",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 1024,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "Content associated with the activity.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "Content",
+            "postgreSql": "Content"
+          }
+        },
+        {
+          "propertyName": "CreateDate",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "CreateDate",
+            "postgreSql": "CreateDate"
+          }
+        },
+        {
+          "propertyName": "DeletedAt",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The date/time the record EntityStatus changed to deleted.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "DeletedAt",
+            "postgreSql": "DeletedAt"
+          }
+        },
+        {
+          "propertyName": "EntityStatus",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 60,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The status of the record.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "EntityStatus",
+            "postgreSql": "EntityStatus"
+          }
+        },
+        {
+          "propertyName": "Id",
+          "propertyType": {
+            "dbType": "Guid",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "Id",
+            "postgreSql": "Id"
+          }
+        },
+        {
+          "propertyName": "LastModifiedDate",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LastModifiedDate",
+            "postgreSql": "LastModifiedDate"
+          }
+        },
+        {
+          "propertyName": "SourceSystem",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The system code or name providing the user data.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SourceSystem",
+            "postgreSql": "SourceSystem"
+          }
+        },
+        {
+          "propertyName": "SourceSystemIdentifier",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique number or alphanumeric code assigned to a user by the source system.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SourceSystemIdentifier",
+            "postgreSql": "SourceSystemIdentifier"
+          }
+        },
+        {
+          "propertyName": "UserLMSActivityIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the user activity.",
+          "isIdentifying": true,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserLMSActivityIdentifier",
+            "postgreSql": "UserLMSActivityIdentifier"
+          }
+        }
+      ],
+      "identifiers": [
+        {
+          "identifierName": "UserLMSActivity_PK",
+          "identifyingPropertyNames": [
+            "UserLMSActivityIdentifier"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false,
+          "constraintNames": {
+            "sqlServer": "UserLMSActivity_PK",
+            "postgreSql": "UserLMSActivity_PK"
+          }
+        },
+        {
+          "identifierName": "UX_UserLMSActivity_Id",
+          "identifyingPropertyNames": [
+            "Id"
+          ],
+          "isPrimary": false,
+          "isUpdatable": false,
+          "constraintNames": {
+            "sqlServer": "UX_UserLMSActivity_Id",
+            "postgreSql": "UX_5c3d9d_Id"
+          }
+        }
+      ],
+      "isAbstract": false,
+      "description": "A user's activity events within the source system.",
+      "tableNames": {
+        "sqlServer": "UserLMSActivity",
+        "postgreSql": "UserLMSActivity"
+      }
+    },
+    {
+      "schema": "fizz",
+      "name": "UserLMSSectionAssociation",
+      "locallyDefinedProperties": [
+        {
+          "propertyName": "CreateDate",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "CreateDate",
+            "postgreSql": "CreateDate"
+          }
+        },
+        {
+          "propertyName": "DeletedAt",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "The date/time the record EntityStatus changed to deleted.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "DeletedAt",
+            "postgreSql": "DeletedAt"
+          }
+        },
+        {
+          "propertyName": "EndDate",
+          "propertyType": {
+            "dbType": "Date",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "Month, day, and year of the user's withdrawal or exit from the section.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "EndDate",
+            "postgreSql": "EndDate"
+          }
+        },
+        {
+          "propertyName": "EnrollmentStatus",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 60,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The status of the user section association. E.g., Active, Inactive, Withdrawn.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "EnrollmentStatus",
+            "postgreSql": "EnrollmentStatus"
+          }
+        },
+        {
+          "propertyName": "EntityStatus",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 60,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The status of the record.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "EntityStatus",
+            "postgreSql": "EntityStatus"
+          }
+        },
+        {
+          "propertyName": "Id",
+          "propertyType": {
+            "dbType": "Guid",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "Id",
+            "postgreSql": "Id"
+          }
+        },
+        {
+          "propertyName": "LastModifiedDate",
+          "propertyType": {
+            "dbType": "DateTime2",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LastModifiedDate",
+            "postgreSql": "LastModifiedDate"
+          }
+        },
+        {
+          "propertyName": "SourceSystem",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "The system code or name providing the user data.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SourceSystem",
+            "postgreSql": "SourceSystem"
+          }
+        },
+        {
+          "propertyName": "SourceSystemIdentifier",
+          "propertyType": {
+            "dbType": "String",
+            "maxLength": 255,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique number or alphanumeric code assigned to a user by the source system.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "SourceSystemIdentifier",
+            "postgreSql": "SourceSystemIdentifier"
+          }
+        },
+        {
+          "propertyName": "StartDate",
+          "propertyType": {
+            "dbType": "Date",
+            "maxLength": 0,
+            "precision": 0,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "Month, day, and year of the user's entry or assignment to the section.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "StartDate",
+            "postgreSql": "StartDate"
+          }
+        },
+        {
+          "propertyName": "UserLMSSectionAssociationIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the user section association.",
+          "isIdentifying": true,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserLMSSectionAssociationIdentifier",
+            "postgreSql": "UserLMSSectionAssociationIdentifier"
+          }
+        }
+      ],
+      "identifiers": [
+        {
+          "identifierName": "UserLMSSectionAssociation_PK",
+          "identifyingPropertyNames": [
+            "LMSSectionIdentifier",
+            "UserIdentifier",
+            "UserLMSSectionAssociationIdentifier"
+          ],
+          "isPrimary": true,
+          "isUpdatable": false,
+          "constraintNames": {
+            "sqlServer": "UserLMSSectionAssociation_PK",
+            "postgreSql": "UserLMSSectionAssociation_PK"
+          }
+        },
+        {
+          "identifierName": "UX_UserLMSSectionAssociation_Id",
+          "identifyingPropertyNames": [
+            "Id"
+          ],
+          "isPrimary": false,
+          "isUpdatable": false,
+          "constraintNames": {
+            "sqlServer": "UX_UserLMSSectionAssociation_Id",
+            "postgreSql": "UX_f5b624_Id"
+          }
+        }
+      ],
+      "isAbstract": false,
+      "description": "The association of a system user and course section. For a student, this would be a section enrollment. For a teacher, this would be a section assignment.",
+      "tableNames": {
+        "sqlServer": "UserLMSSectionAssociation",
+        "postgreSql": "UserLMSSectionAssociation"
+      }
+    }
+  ],
+  "associationDefinitions": [
+    {
+      "fullName": {
+        "schema": "fizz",
+        "name": "FK_Assignment_LMSSection"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "fizz",
+        "name": "LMSSection"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "LMSSectionIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the section.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LMSSectionIdentifier",
+            "postgreSql": "LMSSectionIdentifier"
+          }
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "fizz",
+        "name": "Assignment"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "LMSSectionIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the section.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LMSSectionIdentifier",
+            "postgreSql": "LMSSectionIdentifier"
+          }
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": true,
+      "constraintNames": {
+        "sqlServer": "FK_Assignment_LMSSection",
+        "postgreSql": "FK_153cda_LMSSection"
+      }
+    },
+    {
+      "fullName": {
+        "schema": "fizz",
+        "name": "FK_AssignmentSubmission_Assignment"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "fizz",
+        "name": "Assignment"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "AssignmentIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the assignment.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "AssignmentIdentifier",
+            "postgreSql": "AssignmentIdentifier"
+          }
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "fizz",
+        "name": "AssignmentSubmission"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "AssignmentIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the assignment.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "AssignmentIdentifier",
+            "postgreSql": "AssignmentIdentifier"
+          }
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": true,
+      "constraintNames": {
+        "sqlServer": "FK_AssignmentSubmission_Assignment",
+        "postgreSql": "FK_f12526_Assignment"
+      }
+    },
+    {
+      "fullName": {
+        "schema": "fizz",
+        "name": "FK_AssignmentSubmission_User"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "fizz",
+        "name": "User"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "UserIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the user.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserIdentifier",
+            "postgreSql": "UserIdentifier"
+          }
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "fizz",
+        "name": "AssignmentSubmission"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "UserIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the user.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserIdentifier",
+            "postgreSql": "UserIdentifier"
+          }
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": true,
+      "constraintNames": {
+        "sqlServer": "FK_AssignmentSubmission_User",
+        "postgreSql": "FK_f12526_User"
+      }
+    },
+    {
+      "fullName": {
+        "schema": "fizz",
+        "name": "FK_AssignmentSubmissionType_Assignment"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "fizz",
+        "name": "Assignment"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "AssignmentIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the assignment.",
+          "isIdentifying": true,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "AssignmentIdentifier",
+            "postgreSql": "AssignmentIdentifier"
+          }
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "fizz",
+        "name": "AssignmentSubmissionType"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "AssignmentIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the assignment.",
+          "isIdentifying": true,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "AssignmentIdentifier",
+            "postgreSql": "AssignmentIdentifier"
+          }
+        }
+      ],
+      "isIdentifying": true,
+      "isRequired": true,
+      "constraintNames": {
+        "sqlServer": "FK_AssignmentSubmissionType_Assignment",
+        "postgreSql": "FK_6f15e4_Assignment"
+      }
+    },
+    {
+      "fullName": {
+        "schema": "fizz",
+        "name": "FK_LMSGrade_UserLMSSectionAssociation"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "fizz",
+        "name": "UserLMSSectionAssociation"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "LMSSectionIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the section.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LMSSectionIdentifier",
+            "postgreSql": "LMSSectionIdentifier"
+          }
+        },
+        {
+          "propertyName": "UserIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the user.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserIdentifier",
+            "postgreSql": "UserIdentifier"
+          }
+        },
+        {
+          "propertyName": "UserLMSSectionAssociationIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the user section association.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserLMSSectionAssociationIdentifier",
+            "postgreSql": "UserLMSSectionAssociationIdentifier"
+          }
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "fizz",
+        "name": "LMSGrade"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "LMSSectionIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the section.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LMSSectionIdentifier",
+            "postgreSql": "LMSSectionIdentifier"
+          }
+        },
+        {
+          "propertyName": "UserIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the user.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserIdentifier",
+            "postgreSql": "UserIdentifier"
+          }
+        },
+        {
+          "propertyName": "UserLMSSectionAssociationIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the user section association.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserLMSSectionAssociationIdentifier",
+            "postgreSql": "UserLMSSectionAssociationIdentifier"
+          }
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": true,
+      "constraintNames": {
+        "sqlServer": "FK_LMSGrade_UserLMSSectionAssociation",
+        "postgreSql": "FK_0b99df_UserLMSSectionAssociation"
+      }
+    },
+    {
+      "fullName": {
+        "schema": "fizz",
+        "name": "FK_UserAttendanceEvent_User"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "fizz",
+        "name": "User"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "UserIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the user.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserIdentifier",
+            "postgreSql": "UserIdentifier"
+          }
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "fizz",
+        "name": "UserAttendanceEvent"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "UserIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the user.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserIdentifier",
+            "postgreSql": "UserIdentifier"
+          }
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": true,
+      "constraintNames": {
+        "sqlServer": "FK_UserAttendanceEvent_User",
+        "postgreSql": "FK_517447_User"
+      }
+    },
+    {
+      "fullName": {
+        "schema": "fizz",
+        "name": "FK_UserAttendanceEvent_UserLMSSectionAssociation"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "fizz",
+        "name": "UserLMSSectionAssociation"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "LMSSectionIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the section.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LMSSectionIdentifier",
+            "postgreSql": "LMSSectionIdentifier"
+          }
+        },
+        {
+          "propertyName": "UserIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the user.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserIdentifier",
+            "postgreSql": "UserIdentifier"
+          }
+        },
+        {
+          "propertyName": "UserLMSSectionAssociationIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the user section association.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserLMSSectionAssociationIdentifier",
+            "postgreSql": "UserLMSSectionAssociationIdentifier"
+          }
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "fizz",
+        "name": "UserAttendanceEvent"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "LMSSectionIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "A unique numeric identifier assigned to the section.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LMSSectionIdentifier",
+            "postgreSql": "LMSSectionIdentifier"
+          }
+        },
+        {
+          "propertyName": "UserIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the user.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserIdentifier",
+            "postgreSql": "UserIdentifier"
+          }
+        },
+        {
+          "propertyName": "UserLMSSectionAssociationIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "A unique numeric identifier assigned to the user section association.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserLMSSectionAssociationIdentifier",
+            "postgreSql": "UserLMSSectionAssociationIdentifier"
+          }
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": false,
+      "constraintNames": {
+        "sqlServer": "FK_UserAttendanceEvent_UserLMSSectionAssociation",
+        "postgreSql": "FK_517447_UserLMSSectionAssociation"
+      }
+    },
+    {
+      "fullName": {
+        "schema": "fizz",
+        "name": "FK_UserLMSActivity_Assignment"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "fizz",
+        "name": "Assignment"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "AssignmentIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the assignment.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "AssignmentIdentifier",
+            "postgreSql": "AssignmentIdentifier"
+          }
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "fizz",
+        "name": "UserLMSActivity"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "AssignmentIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "A unique numeric identifier assigned to the assignment.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "AssignmentIdentifier",
+            "postgreSql": "AssignmentIdentifier"
+          }
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": false,
+      "constraintNames": {
+        "sqlServer": "FK_UserLMSActivity_Assignment",
+        "postgreSql": "FK_5c3d9d_Assignment"
+      }
+    },
+    {
+      "fullName": {
+        "schema": "fizz",
+        "name": "FK_UserLMSActivity_LMSSection"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "fizz",
+        "name": "LMSSection"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "LMSSectionIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the section.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LMSSectionIdentifier",
+            "postgreSql": "LMSSectionIdentifier"
+          }
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "fizz",
+        "name": "UserLMSActivity"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "LMSSectionIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": true
+          },
+          "description": "A unique numeric identifier assigned to the section.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LMSSectionIdentifier",
+            "postgreSql": "LMSSectionIdentifier"
+          }
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": false,
+      "constraintNames": {
+        "sqlServer": "FK_UserLMSActivity_LMSSection",
+        "postgreSql": "FK_5c3d9d_LMSSection"
+      }
+    },
+    {
+      "fullName": {
+        "schema": "fizz",
+        "name": "FK_UserLMSActivity_User"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "fizz",
+        "name": "User"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "UserIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the user.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserIdentifier",
+            "postgreSql": "UserIdentifier"
+          }
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "fizz",
+        "name": "UserLMSActivity"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "UserIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the user.",
+          "isIdentifying": false,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserIdentifier",
+            "postgreSql": "UserIdentifier"
+          }
+        }
+      ],
+      "isIdentifying": false,
+      "isRequired": true,
+      "constraintNames": {
+        "sqlServer": "FK_UserLMSActivity_User",
+        "postgreSql": "FK_5c3d9d_User"
+      }
+    },
+    {
+      "fullName": {
+        "schema": "fizz",
+        "name": "FK_UserLMSSectionAssociation_LMSSection"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "fizz",
+        "name": "LMSSection"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "LMSSectionIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the section.",
+          "isIdentifying": true,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LMSSectionIdentifier",
+            "postgreSql": "LMSSectionIdentifier"
+          }
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "fizz",
+        "name": "UserLMSSectionAssociation"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "LMSSectionIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the section.",
+          "isIdentifying": true,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "LMSSectionIdentifier",
+            "postgreSql": "LMSSectionIdentifier"
+          }
+        }
+      ],
+      "isIdentifying": true,
+      "isRequired": true,
+      "constraintNames": {
+        "sqlServer": "FK_UserLMSSectionAssociation_LMSSection",
+        "postgreSql": "FK_f5b624_LMSSection"
+      }
+    },
+    {
+      "fullName": {
+        "schema": "fizz",
+        "name": "FK_UserLMSSectionAssociation_User"
+      },
+      "cardinality": "OneToZeroOrMore",
+      "primaryEntityFullName": {
+        "schema": "fizz",
+        "name": "User"
+      },
+      "primaryEntityProperties": [
+        {
+          "propertyName": "UserIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the user.",
+          "isIdentifying": true,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserIdentifier",
+            "postgreSql": "UserIdentifier"
+          }
+        }
+      ],
+      "secondaryEntityFullName": {
+        "schema": "fizz",
+        "name": "UserLMSSectionAssociation"
+      },
+      "secondaryEntityProperties": [
+        {
+          "propertyName": "UserIdentifier",
+          "propertyType": {
+            "dbType": "Int32",
+            "maxLength": 0,
+            "precision": 10,
+            "scale": 0,
+            "isNullable": false
+          },
+          "description": "A unique numeric identifier assigned to the user.",
+          "isIdentifying": true,
+          "isServerAssigned": false,
+          "columnNames": {
+            "sqlServer": "UserIdentifier",
+            "postgreSql": "UserIdentifier"
+          }
+        }
+      ],
+      "isIdentifying": true,
+      "isRequired": true,
+      "constraintNames": {
+        "sqlServer": "FK_UserLMSSectionAssociation_User",
+        "postgreSql": "FK_f5b624_User"
+      }
+    }
+  ]
+}
