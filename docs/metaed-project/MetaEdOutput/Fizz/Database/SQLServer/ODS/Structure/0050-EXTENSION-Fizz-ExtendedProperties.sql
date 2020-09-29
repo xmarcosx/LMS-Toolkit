@@ -15,21 +15,21 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The category o
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The assignment description.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'Assignment', @level2type=N'COLUMN', @level2name=N'AssignmentDescription'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The start date/time for the assignment. Students will have access to the assignment after this date.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'Assignment', @level2type=N'COLUMN', @level2name=N'StartDateTime'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The start date and time for the assignment. Students will have access to the assignment after this date.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'Assignment', @level2type=N'COLUMN', @level2name=N'StartDateTime'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The end date/time for the assignment. Students will no longer have access to the assignment after this date.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'Assignment', @level2type=N'COLUMN', @level2name=N'EndDateTime'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The end date and time for the assignment. Students will no longer have access to the assignment after this date.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'Assignment', @level2type=N'COLUMN', @level2name=N'EndDateTime'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The due date/time for the assignment.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'Assignment', @level2type=N'COLUMN', @level2name=N'DueDateTime'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date and time the assignment is due.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'Assignment', @level2type=N'COLUMN', @level2name=N'DueDateTime'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The maximum number of points a student may receive for a submission of the assignment.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'Assignment', @level2type=N'COLUMN', @level2name=N'MaxPoints'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The status of the record.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'Assignment', @level2type=N'COLUMN', @level2name=N'EntityStatus'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date/time the record EntityStatus changed to deleted.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'Assignment', @level2type=N'COLUMN', @level2name=N'DeletedAt'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The datetime the record EntityStatus was changed to deleted.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'Assignment', @level2type=N'COLUMN', @level2name=N'DeletedAt'
 GO
 
 -- Extended Properties [fizz].[AssignmentSubmission] --
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A student''s submission for an assignment.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'AssignmentSubmission'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A user''s submission of course work for an assignment.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'AssignmentSubmission'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique numeric identifier assigned to the submission.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'AssignmentSubmission', @level2type=N'COLUMN', @level2name=N'LMSGradeIdentifier'
 GO
@@ -41,9 +41,9 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique numer
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique numeric identifier assigned to the assignment.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'AssignmentSubmission', @level2type=N'COLUMN', @level2name=N'AssignmentIdentifier'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The status of the submission in relation to the late policy.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'AssignmentSubmission', @level2type=N'COLUMN', @level2name=N'Status'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The status of the submission in relation to the late acceptance policy.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'AssignmentSubmission', @level2type=N'COLUMN', @level2name=N'Status'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date/time for the assignment submission.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'AssignmentSubmission', @level2type=N'COLUMN', @level2name=N'SubmissionDateTime'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date and time of the assignment submission.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'AssignmentSubmission', @level2type=N'COLUMN', @level2name=N'SubmissionDateTime'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The points earned for the submission.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'AssignmentSubmission', @level2type=N'COLUMN', @level2name=N'EarnedPoints'
 GO
@@ -51,19 +51,19 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade rece
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The status of the record.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'AssignmentSubmission', @level2type=N'COLUMN', @level2name=N'EntityStatus'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date/time the record EntityStatus changed to deleted.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'AssignmentSubmission', @level2type=N'COLUMN', @level2name=N'DeletedAt'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The datetime the record EntityStatus was changed to deleted.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'AssignmentSubmission', @level2type=N'COLUMN', @level2name=N'DeletedAt'
 GO
 
 -- Extended Properties [fizz].[AssignmentSubmissionType] --
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type or types of submissions available for the assignment.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'AssignmentSubmissionType'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type(s) of submissions available for the assignment.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'AssignmentSubmissionType'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique numeric identifier assigned to the assignment.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'AssignmentSubmissionType', @level2type=N'COLUMN', @level2name=N'AssignmentIdentifier'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type or types of submissions available for the assignment.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'AssignmentSubmissionType', @level2type=N'COLUMN', @level2name=N'SubmissionType'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type(s) of submissions available for the assignment.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'AssignmentSubmissionType', @level2type=N'COLUMN', @level2name=N'SubmissionType'
 GO
 
 -- Extended Properties [fizz].[LMSGrade] --
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The grade received for a section enrollment.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'LMSGrade'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A grade assigned to a user in a section.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'LMSGrade'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique numeric identifier assigned to the grade.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'LMSGrade', @level2type=N'COLUMN', @level2name=N'LMSGradeIdentifier'
 GO
@@ -77,17 +77,17 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique numer
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique numeric identifier assigned to the user section association.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'LMSGrade', @level2type=N'COLUMN', @level2name=N'UserLMSSectionAssociationIdentifier'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The user''s letter or numeric grade for the section enrollment.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'LMSGrade', @level2type=N'COLUMN', @level2name=N'Grade'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The user''s letter or numeric grade for the section.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'LMSGrade', @level2type=N'COLUMN', @level2name=N'Grade'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The type of grade reported. E.g., Current, Final.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'LMSGrade', @level2type=N'COLUMN', @level2name=N'GradeType'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The status of the record.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'LMSGrade', @level2type=N'COLUMN', @level2name=N'EntityStatus'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date/time the record EntityStatus changed to deleted.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'LMSGrade', @level2type=N'COLUMN', @level2name=N'DeletedAt'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The datetime the record EntityStatus was changed to deleted.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'LMSGrade', @level2type=N'COLUMN', @level2name=N'DeletedAt'
 GO
 
 -- Extended Properties [fizz].[LMSSection] --
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A course section defined in the source system.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'LMSSection'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An organized grouping of course content and users over a period of time for the purpose of providing instruction.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'LMSSection'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique numeric identifier assigned to the section.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'LMSSection', @level2type=N'COLUMN', @level2name=N'LMSSectionIdentifier'
 GO
@@ -107,11 +107,11 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The section st
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The status of the record.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'LMSSection', @level2type=N'COLUMN', @level2name=N'EntityStatus'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date/time the record EntityStatus changed to deleted.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'LMSSection', @level2type=N'COLUMN', @level2name=N'DeletedAt'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The datetime the record EntityStatus was changed to deleted.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'LMSSection', @level2type=N'COLUMN', @level2name=N'DeletedAt'
 GO
 
 -- Extended Properties [fizz].[User] --
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A system user.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'User'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A person using the instructional system.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'User'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique numeric identifier assigned to the user.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'User', @level2type=N'COLUMN', @level2name=N'UserIdentifier'
 GO
@@ -131,7 +131,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The primary e-
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The status of the record.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'User', @level2type=N'COLUMN', @level2name=N'EntityStatus'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date/time the record EntityStatus changed to deleted.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'User', @level2type=N'COLUMN', @level2name=N'DeletedAt'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The datetime the record EntityStatus was changed to deleted.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'User', @level2type=N'COLUMN', @level2name=N'DeletedAt'
 GO
 
 -- Extended Properties [fizz].[UserAttendanceEvent] --
@@ -155,11 +155,11 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A code describ
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The status of the record.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'UserAttendanceEvent', @level2type=N'COLUMN', @level2name=N'EntityStatus'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date/time the record EntityStatus changed to deleted.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'UserAttendanceEvent', @level2type=N'COLUMN', @level2name=N'DeletedAt'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The datetime the record EntityStatus was changed to deleted.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'UserAttendanceEvent', @level2type=N'COLUMN', @level2name=N'DeletedAt'
 GO
 
 -- Extended Properties [fizz].[UserLMSActivity] --
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A user''s activity events within the source system.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'UserLMSActivity'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'An activity performed by a user within the instructional system.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'UserLMSActivity'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique numeric identifier assigned to the user activity.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'UserLMSActivity', @level2type=N'COLUMN', @level2name=N'UserLMSActivityIdentifier'
 GO
@@ -185,11 +185,11 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The total acti
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The status of the record.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'UserLMSActivity', @level2type=N'COLUMN', @level2name=N'EntityStatus'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date/time the record EntityStatus changed to deleted.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'UserLMSActivity', @level2type=N'COLUMN', @level2name=N'DeletedAt'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The datetime the record EntityStatus was changed to deleted.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'UserLMSActivity', @level2type=N'COLUMN', @level2name=N'DeletedAt'
 GO
 
 -- Extended Properties [fizz].[UserLMSSectionAssociation] --
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The association of a system user and course section. For a student, this would be a section enrollment. For a teacher, this would be a section assignment.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'UserLMSSectionAssociation'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The association of a user and section. For a student, this would be a section enrollment. For a teacher, this would be a section assignment.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'UserLMSSectionAssociation'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique numeric identifier assigned to the section.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'UserLMSSectionAssociation', @level2type=N'COLUMN', @level2name=N'LMSSectionIdentifier'
 GO
@@ -209,6 +209,6 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Month, day, an
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The status of the record.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'UserLMSSectionAssociation', @level2type=N'COLUMN', @level2name=N'EntityStatus'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date/time the record EntityStatus changed to deleted.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'UserLMSSectionAssociation', @level2type=N'COLUMN', @level2name=N'DeletedAt'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The datetime the record EntityStatus was changed to deleted.', @level0type=N'SCHEMA', @level0name=N'fizz', @level1type=N'TABLE', @level1name=N'UserLMSSectionAssociation', @level2type=N'COLUMN', @level2name=N'DeletedAt'
 GO
 

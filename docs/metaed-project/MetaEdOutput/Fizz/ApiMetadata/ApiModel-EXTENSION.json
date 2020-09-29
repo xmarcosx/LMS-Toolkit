@@ -190,7 +190,7 @@
             "scale": 0,
             "isNullable": true
           },
-          "description": "The date/time the record EntityStatus changed to deleted.",
+          "description": "The datetime the record EntityStatus was changed to deleted.",
           "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
@@ -207,7 +207,7 @@
             "scale": 0,
             "isNullable": true
           },
-          "description": "The due date/time for the assignment.",
+          "description": "The date and time the assignment is due.",
           "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
@@ -224,7 +224,7 @@
             "scale": 0,
             "isNullable": true
           },
-          "description": "The end date/time for the assignment. Students will no longer have access to the assignment after this date.",
+          "description": "The end date and time for the assignment. Students will no longer have access to the assignment after this date.",
           "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
@@ -343,7 +343,7 @@
             "scale": 0,
             "isNullable": true
           },
-          "description": "The start date/time for the assignment. Students will have access to the assignment after this date.",
+          "description": "The start date and time for the assignment. Students will have access to the assignment after this date.",
           "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
@@ -432,7 +432,7 @@
             "scale": 0,
             "isNullable": true
           },
-          "description": "The date/time the record EntityStatus changed to deleted.",
+          "description": "The datetime the record EntityStatus was changed to deleted.",
           "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
@@ -585,7 +585,7 @@
             "scale": 0,
             "isNullable": false
           },
-          "description": "The status of the submission in relation to the late policy.",
+          "description": "The status of the submission in relation to the late acceptance policy.",
           "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
@@ -602,7 +602,7 @@
             "scale": 0,
             "isNullable": false
           },
-          "description": "The date/time for the assignment submission.",
+          "description": "The date and time of the assignment submission.",
           "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
@@ -638,7 +638,7 @@
         }
       ],
       "isAbstract": false,
-      "description": "A student's submission for an assignment.",
+      "description": "A user's submission of course work for an assignment.",
       "tableNames": {
         "sqlServer": "AssignmentSubmission",
         "postgreSql": "AssignmentSubmission"
@@ -674,7 +674,7 @@
             "scale": 0,
             "isNullable": false
           },
-          "description": "The type or types of submissions available for the assignment.",
+          "description": "The type(s) of submissions available for the assignment.",
           "isIdentifying": true,
           "isServerAssigned": false,
           "columnNames": {
@@ -699,7 +699,7 @@
         }
       ],
       "isAbstract": false,
-      "description": "The type or types of submissions available for the assignment.",
+      "description": "The type(s) of submissions available for the assignment.",
       "tableNames": {
         "sqlServer": "AssignmentSubmissionType",
         "postgreSql": "AssignmentSubmissionType"
@@ -735,7 +735,7 @@
             "scale": 0,
             "isNullable": true
           },
-          "description": "The date/time the record EntityStatus changed to deleted.",
+          "description": "The datetime the record EntityStatus was changed to deleted.",
           "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
@@ -769,7 +769,7 @@
             "scale": 0,
             "isNullable": false
           },
-          "description": "The user's letter or numeric grade for the section enrollment.",
+          "description": "The user's letter or numeric grade for the section.",
           "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
@@ -907,7 +907,7 @@
         }
       ],
       "isAbstract": false,
-      "description": "The grade received for a section enrollment.",
+      "description": "A grade assigned to a user in a section.",
       "tableNames": {
         "sqlServer": "LMSGrade",
         "postgreSql": "LMSGrade"
@@ -943,7 +943,7 @@
             "scale": 0,
             "isNullable": true
           },
-          "description": "The date/time the record EntityStatus changed to deleted.",
+          "description": "The datetime the record EntityStatus was changed to deleted.",
           "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
@@ -1166,7 +1166,7 @@
         }
       ],
       "isAbstract": false,
-      "description": "A course section defined in the source system.",
+      "description": "An organized grouping of course content and users over a period of time for the purpose of providing instruction.",
       "tableNames": {
         "sqlServer": "LMSSection",
         "postgreSql": "LMSSection"
@@ -1202,7 +1202,7 @@
             "scale": 0,
             "isNullable": true
           },
-          "description": "The date/time the record EntityStatus changed to deleted.",
+          "description": "The datetime the record EntityStatus was changed to deleted.",
           "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
@@ -1425,7 +1425,7 @@
         }
       ],
       "isAbstract": false,
-      "description": "A system user.",
+      "description": "A person using the instructional system.",
       "tableNames": {
         "sqlServer": "User",
         "postgreSql": "User"
@@ -1461,7 +1461,7 @@
             "scale": 0,
             "isNullable": true
           },
-          "description": "The date/time the record EntityStatus changed to deleted.",
+          "description": "The datetime the record EntityStatus was changed to deleted.",
           "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
@@ -1754,7 +1754,7 @@
             "scale": 0,
             "isNullable": true
           },
-          "description": "The date/time the record EntityStatus changed to deleted.",
+          "description": "The datetime the record EntityStatus was changed to deleted.",
           "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
@@ -1892,7 +1892,7 @@
         }
       ],
       "isAbstract": false,
-      "description": "A user's activity events within the source system.",
+      "description": "An activity performed by a user within the instructional system.",
       "tableNames": {
         "sqlServer": "UserLMSActivity",
         "postgreSql": "UserLMSActivity"
@@ -1928,7 +1928,7 @@
             "scale": 0,
             "isNullable": true
           },
-          "description": "The date/time the record EntityStatus changed to deleted.",
+          "description": "The datetime the record EntityStatus was changed to deleted.",
           "isIdentifying": false,
           "isServerAssigned": false,
           "columnNames": {
@@ -2119,7 +2119,7 @@
         }
       ],
       "isAbstract": false,
-      "description": "The association of a system user and course section. For a student, this would be a section enrollment. For a teacher, this would be a section assignment.",
+      "description": "The association of a user and section. For a student, this would be a section enrollment. For a teacher, this would be a section assignment.",
       "tableNames": {
         "sqlServer": "UserLMSSectionAssociation",
         "postgreSql": "UserLMSSectionAssociation"
